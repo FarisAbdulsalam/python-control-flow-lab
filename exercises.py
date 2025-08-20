@@ -193,3 +193,55 @@ def determine_season():
 # Call the function
 determine_season()
 
+# Exercise 6: Number Guessing Game
+#
+# Write a Python function named `guess_number` that allows a user to guess a predetermined number within a range.
+#
+# Requirements:
+# - Set a fixed number as the target for guessing (e.g., 42).
+# - Prompt the user to guess a number within a range (e.g., 1 to 100).
+# - Allow the user to guess up to five times.
+# - After each guess, use conditional statements with AND, OR, and NOT to give the user hints like:
+#   - "Guess is too low" or "Guess is too high."
+#   - "Last chance!" when they are on their fifth guess.
+# - Print "Congratulations, you guessed correctly!" if they guess the number.
+# - Print "Sorry, you failed to guess the number in five attempts." if they do not succeed.
+#
+# Hints:
+# - Use a for loop with a range to limit guesses to five.
+# - Use logical AND, OR, and NOT to check conditions and provide appropriate feedback.
+
+def guess_number():
+    # Your control flow logic goes here
+    winning_number = 67
+    for i in range(5):
+        while True:
+            try:
+                guess = int(input("Guess a number between 1 and 100: "))
+                if guess < 1 or guess > 100:
+                    print("Please enter a number between 1 and 100.")
+                    return
+                else:
+                    break
+            except ValueError:
+                    print("That's not a valid number. Try again.")
+        if guess == winning_number:
+            print("Yippiee you win")
+            return
+        elif guess < winning_number:
+            if i < 3:
+                print("Guess too low, please try again")
+            elif i == 3:
+                print("Guess too low. Last chance!")
+            elif i == 4:
+                return print("You lose")
+        elif guess > winning_number:
+            if i < 3:
+                print("Guess too high, please try again")
+            elif i == 3:
+                print("Guess too high. Last chance!")
+            elif i == 4:
+                return print("You lose")
+
+# Call the function
+guess_number()
